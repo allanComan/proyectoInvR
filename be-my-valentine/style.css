@@ -1,0 +1,252 @@
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Karla:ital,wght@0,200..800;1,200..800&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  font-size: 62.5%;
+  background-color: #fff0f6;
+  font-family: "Josefin Sans", sans-serif;
+  width: 100%;
+  overflow-x: hidden;
+
+}
+
+.container {
+  height: 100vh;
+  margin: 0 auto;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.cat-img {
+  max-width: 100%;
+  width: 30rem;
+  height: 30rem;
+  margin-bottom: 2rem;
+}
+
+.title {
+  font-size: 3.6rem;
+  color: #f53699;
+  text-align: center;
+  margin-bottom: 2rem;
+  font-family: Great Vibes, cursive;
+  padding: 5%;
+}
+
+.buttons {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+
+  gap: 1rem;
+}
+
+.btn {
+  padding: 1.5rem 2.5rem;
+  border: none;
+  border-radius: 4px;
+
+  color: white;
+  font-size: 1.6rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-block;
+}
+
+.btn--yes {
+  background-color: #40c057;
+  max-width: 100%;
+  word-break: break-word;
+  text-align: center;
+}
+
+.btn--no {
+  background-color: #f03e3e;
+}
+
+.hidden {
+  display: none;
+}
+
+.celebration-gif {
+  max-width: 80%;
+  height: auto;
+  margin: 20px auto 0;
+  border-radius: 20px;
+  margin-bottom: 6rem;
+}
+
+.lantern {
+  position: fixed;
+  bottom: -50px;
+  width: 80px;
+  height: 120px;
+  background-image: url("img/lantern.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  pointer-events: none;
+  z-index: 999;
+  animation: rise 6s ease-in forwards;
+  opacity: 0.8;
+}
+
+@keyframes rise {
+  0% {
+    transform: translateY(0);
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateY(-120vh);
+    opacity: 0;
+  }
+}
+
+.rapunzel-scene {
+  background: linear-gradient(to top, #0d0a1a, #251c44, #3c2c64, #5a3e7a);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  transition: background 1s ease-in-out;
+  position: relative;
+  overflow: hidden;
+}
+
+body.rapunzel-scene::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(255, 234, 200, 0.2),
+    transparent 70%
+  );
+  z-index: 1;
+  pointer-events: none;
+}
+
+.rapunzel-scene::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+      circle at 20% 40%,
+      rgba(255, 244, 200, 0.1) 0%,
+      transparent 40%
+    ),
+    radial-gradient(
+      circle at 80% 20%,
+      rgba(255, 244, 200, 0.1) 0%,
+      transparent 40%
+    ),
+    radial-gradient(
+      circle at 50% 70%,
+      rgba(255, 244, 200, 0.15) 0%,
+      transparent 50%
+    );
+  z-index: 0;
+  pointer-events: none;
+}
+
+.fade-in {
+  opacity: 0;
+  animation: fadeIn 2s ease forwards;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+.title.positive {
+  color: #f5e8b7;
+  text-shadow: 0 0 8px rgba(255, 240, 200, 0.6);
+}
+
+.photo-frame {
+  position: absolute;
+  width: 160px;
+  border-radius: 0; /* Polaroids son esquinas rectas */
+  box-shadow: none; /* Quitamos el brillo */
+  animation: float 6s ease-in-out infinite;
+  transition: opacity 0.5s ease-in-out;
+  z-index: 3;
+}
+
+.photo-frame img {
+  width: 100%;
+  border-radius: 0; /* También sin bordes redondeados para que calce con el marco polaroid */
+  display: block;
+}
+
+.photo1{
+  top: 40px;
+  left: 30px;
+  transform: rotate(-6deg)
+}
+
+.photo2{
+
+   top: 60px;
+  right: 40px;
+  transform: rotate(5deg);
+}
+
+
+/* Flotando suavemente */
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+/* Ocultar elementos al inicio */
+.hidden {
+  display: none;
+}
+
+.btn--yes {
+  position: relative;
+  z-index: 10;
+  transition: transform 0.3s ease;
+}
+
+.btn--yes.expanded {
+  position: fixed !important;
+  top: 50%;
+  left: 50%;
+  transform-origin: center;
+  transform: translate(-50%, -50%) scale(15); /* escala para cubrir pantalla */
+  width: 200px; /* ancho base antes del scale */
+  height: 60px; /* alto base */
+  border-radius: 50%; /* para que se vea redondo, opcional */
+  z-index: 9999 !important;
+  transition: transform 0.5s ease;
+  pointer-events: auto;
+}
+
+
+
+@media (max-width: 600px) {
+  .photo-frame {
+    width: 100px;
+  }
+
+  #foto1{
+    top: 10px;
+    left: 10px;
+    margin: 10px;
+  }
