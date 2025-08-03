@@ -30,7 +30,7 @@ noButton.addEventListener("click", function () {
 
 function handleYesClick() {
   titleElement.innerHTML =
-    "Sii ya sabia que ibas a decir que si, es una cita. Paso por vos el lunes a las 5pm a tu casa, solo ponte linda para mi";
+    "Sii ya sabía que ibas a decir que si, es una cita. Paso por vos el lunes a las 4pm a tu casa, solo ponte linda para mi y pedí permiso desde ya. Avisame si lo recibiste";
   titleElement.classList.add("positive"); // <- aquí le aplicás el color
   buttonsContainer.classList.add("hidden");
 
@@ -53,7 +53,7 @@ function handleYesClick() {
   }
 
   // Generar varias lámparas seguidas
-  for (let i = 0; i < 30; i++) {
+  for (let i = 0; i < 80; i++) {
     setTimeout(createLantern, i * 300); // 1 cada 300ms
   }
 
@@ -65,21 +65,21 @@ function handleYesClick() {
 function resizeYesButton() {
   const computedStyle = window.getComputedStyle(yesButton);
   const fontSize = parseFloat(computedStyle.getPropertyValue("font-size"));
-  const newFontSize = fontSize * 1.46;
+  const newFontSize = fontSize * 1.54;
   yesButton.style.fontSize = `${newFontSize}px`;
 }
 
 function generateMessage(noCount) {
   const messages = [
     "No",
-    "Estas segura?",
+    "Estás segura?",
     "Mi rubia por favor",
-    "Que feisimo :(",
-    "Estas rompiendole el corazon a bailey",
-    "Camaliyona no seas asi",
+    "Él es el que te está invitando :(",
+    "Estás rompiendole el corazón a bailey",
+    "Camaliyona no seas así",
     "Ahhh va",
     "q feo",
-    "Ojala te encojas 3 cm",
+    "quedé",
     "rubia...",
   ];
 
